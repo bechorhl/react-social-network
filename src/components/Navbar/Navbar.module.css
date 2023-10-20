@@ -1,2 +1,5 @@
-
-
+.nav {
+  padding: 10px;
+  grid-area: nav;  
+  background-color: #5cdb95;
+}

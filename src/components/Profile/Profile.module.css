@@ -1,0 +1,14 @@
+.text {
+  color: #05386b;  
+}
+
+.content {  
+  grid-area: content;
+  background-color: #edf5e1;
+}
+
+.mainImage {
+  height: 100px;
+  width: 100%;
+}
+

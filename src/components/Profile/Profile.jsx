@@ -1,23 +1,16 @@
 import React from 'react';
-import headerImg from './../../assets/images/header-img.png';
+import styles from './Profile.module.css';
+import mainImg from './../../assets/images/main-image.png';
+import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
   return (
-    <main className="content">
+    <main className={`${styles.text} ${styles.content}`}>
       <div>
-        <img className="mainImage" src={headerImg} />
+        <img className={styles.mainImage} src={mainImg} />
       </div>
       <div>ava + description</div>
-      <div>
-        My posts
-        <div>New post</div>
-        <div>
-          <ul>
-            <li>Post1</li>
-            <li>Post2</li>
-          </ul>
-        </div>
-      </div>
+      <MyPosts />
     </main>
   );
 };
