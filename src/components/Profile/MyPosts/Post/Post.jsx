@@ -2,11 +2,15 @@ import React from 'react';
 import styles from './Post.module.css';
 import postIcon from './../../../../assets/images/post-icon.png';
 
-const Post = () => {
+const Post = (props) => {
   return (
     <li className={styles.post}>
       <img className={styles.postIcon} src={postIcon} />
-      Post1
+      {props.message}
+      <div>
+        <span>like </span>
+        {props.likesCount}
+      </div>
     </li>
   );
 };

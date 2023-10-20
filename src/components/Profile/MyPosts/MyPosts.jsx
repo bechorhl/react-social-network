@@ -13,8 +13,8 @@ const MyPosts = () => {
       <div>New post</div>
       <div>
         <ul>
-          <Post />
-          <Post />
+          <Post message="Hi! how are you?" likesCount="15" />
+          <Post message="It's my first post" likesCount="20" />
         </ul>
       </div>
     </div>
