@@ -3,3 +3,14 @@
   grid-area: nav;  
   background-color: #5cdb95;
 }
+
+/* .navLink {
+  color: green;
+  font-size: 8px;
+} */
+
+.navLinkIsActive {
+  font-weight: bold;
+  font-size: 20px;
+}
+
