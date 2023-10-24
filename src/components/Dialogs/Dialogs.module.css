@@ -1,5 +1,4 @@
-.dialogs {
-  
+.dialogs {  
   display: grid;
   grid-template-columns: 2fr 10fr;
 }
@@ -10,6 +9,11 @@
 
 .dialog {
 
+}
+
+.dialogIsActive {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .dialog:not(:first-child) {

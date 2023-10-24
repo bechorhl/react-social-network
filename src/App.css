@@ -6,6 +6,7 @@ ul, li {
 }
 
 a {
+  color: #05386b;
   outline: none;
   text-decoration: none;
   cursor: pointer;
@@ -14,6 +15,10 @@ a {
 
 a:focus {
   outline: none;
+}
+
+a:active {
+  font-weight: bold;
 }
 
 h1,

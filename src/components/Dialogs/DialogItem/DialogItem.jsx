@@ -5,9 +5,17 @@ import { NavLink } from 'react-router-dom';
 const DialogItem = (props) => {
   return (
     <li className={styles.dialog}>
-      <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+      <NavLink
+        to={'/dialogs/' + props.id}
+        className={(navData) =>
+          navData.isActive ? styles.dialogIsActive : styles.dialog
+        }
+      >
+        {props.name}
+      </NavLink>
     </li>
   );
 };
 
 export default DialogItem;
+// {styles.dialog}
