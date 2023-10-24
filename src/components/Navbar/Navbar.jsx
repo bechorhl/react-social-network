@@ -37,9 +37,7 @@ const Navbar = (props) => {
           <NavLink>Settings</NavLink>
         </li>
       </ul>
-      <div className={styles.friends}>
-        <Friends friends={props.state.friends} />
-      </div>
+      <Friends friends={props.state.friends} />
     </nav>
   );
 };

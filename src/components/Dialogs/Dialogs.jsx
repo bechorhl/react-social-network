@@ -12,10 +12,28 @@ const Dialogs = (props) => {
     <Message message={message.message} />
   ));
 
+  let newMessage = React.createRef();
+
+  const addNewMessage = () => {
+    let text = newMessage.current.value;
+    alert(text);
+  };
+
   return (
     <div className={styles.dialogs}>
-      <ul className={styles.dialogsItems}>{dialogsElements}</ul>
-      <ul className={styles.messages}>{messagesElements}</ul>
+      <div>
+        <ul className={styles.dialogsItems}>{dialogsElements}</ul>
+      </div>
+      <div>
+        <ul className={styles.messages}>{messagesElements}</ul>
+        <textarea
+          ref={newMessage}
+          className={styles.textarea}
+          name=""
+          id=""
+        ></textarea>
+        <button onClick={addNewMessage}>Add message</button>
+      </div>
     </div>
   );
 };

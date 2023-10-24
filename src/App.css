@@ -28,6 +28,17 @@ p {
   margin: 0;
 }
 
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #5cdb95;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  color: #05386b;
+}
+
 /* App file css */
 .app-wrapper {
   margin: 0 auto;
