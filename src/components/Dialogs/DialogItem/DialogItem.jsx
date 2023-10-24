@@ -18,4 +18,3 @@ const DialogItem = (props) => {
 };
 
 export default DialogItem;
-// {styles.dialog}

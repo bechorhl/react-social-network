@@ -1,0 +1,15 @@
+.friends {
+  margin-top: 50px;
+}
+
+.title {
+  font-weight: normal;
+  color: #05386b;
+}
+
+.friendsList {
+  margin-top: 10px;
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+}
