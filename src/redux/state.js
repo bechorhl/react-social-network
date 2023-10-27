@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+
 const store = {
   _state: {
     profilePage: {
@@ -7,7 +12,7 @@ const store = {
       ],
       newPostText: 'it-incubator.eu',
     },
-    messagesPage: {
+    dialogsPage: {
       dialogs: [
         { id: 1, name: 'Dimych' },
         { id: 2, name: 'Andrey' },
@@ -23,6 +28,7 @@ const store = {
         { id: 4, message: 'Yo' },
         { id: 5, message: 'Yo' },
       ],
+      newMessageBody: '',
     },
     sidebar: {
       friends: [
@@ -43,21 +49,65 @@ const store = {
     this._callSubscriber = observer;
   },
 
-  addPost() {
-    let newPost = {
+  _addPost() {
+    const newPost = {
       id: this._state.profilePage.posts.length + 1,
       message: this._state.profilePage.newPostText,
       likesCount: 0,
     };
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
-    this._callSubscriber(this.state);
+    this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
   },
+  _sendMessage() {
+    const newMessage = {
+      id: this._state.dialogsPage.messages.length + 1,
+      message: this._state.dialogsPage.newMessageBody,
+    };
+    this._state.dialogsPage.messages.push(newMessage);
+    this._state.dialogsPage.newMessageBody = '';
+    this._callSubscriber(this._state);
+  },
+  _updateNewMessageBody(message) {
+    this._state.dialogsPage.newMessageBody = message;
+    this._callSubscriber(this._state);
+  },
+
+  dispatch(action) {
+    switch (action.type) {
+      case ADD_POST:
+        this._addPost();
+        break;
+      case UPDATE_NEW_POST_TEXT:
+        this._updateNewPostText(action.newText);
+        break;
+      case SEND_MESSAGE:
+        this._sendMessage();
+        break;
+      case UPDATE_NEW_MESSAGE_BODY:
+        this._updateNewMessageBody(action.body);
+        break;
+    }
+  },
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const updateNewPostActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text,
+});
+
+export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
+
+export const updateNewMessageBodyActionCreator = (body) => ({
+  type: UPDATE_NEW_MESSAGE_BODY,
+  body: body,
+});
 
 window.state = store._state;
 

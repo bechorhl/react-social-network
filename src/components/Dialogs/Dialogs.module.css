@@ -3,8 +3,13 @@
   grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems {
+.namesBlock, 
+.messageBlock {
   padding: 10px;
+}
+
+.dialogsItems {
+  
 }
 
 .dialog {
@@ -24,8 +29,16 @@
   padding: 10px;
 }
 
-.message {
+.message:not(:first-child) {
+  margin-top: 15px;
+}
 
+.messageItem {
+  padding: 5px 10px;
+  width: max-content;
+  max-width: 300px;
+  border: 1px solid #5cdb95;
+  border-radius: 30px;
 }
 
 .textarea {

@@ -2,37 +2,45 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import {
+  sendMessageActionCreator,
+  updateNewMessageBodyActionCreator,
+} from '../../redux/state';
 
 const Dialogs = (props) => {
-  const dialogsElements = props.state.dialogs.map((dialog) => (
+  const dialogsElements = props.dialogsPage.dialogs.map((dialog) => (
     <DialogItem key={dialog.id} id={dialog.id} name={dialog.name} />
   ));
 
-  const messagesElements = props.state.messages.map((message) => (
-    <Message message={message.message} />
+  const messagesElements = props.dialogsPage.messages.map((message) => (
+    <Message key={message.id} message={message.message} />
   ));
 
-  const newMessage = React.createRef();
+  const onSendMessageClick = () => {
+    props.dispatch(sendMessageActionCreator());
+  };
 
-  const addNewMessage = () => {
-    let text = newMessage.current.value;
-    alert(text);
+  const onNewMessageChange = (e) => {
+    let message = e.target.value;
+    props.dispatch(updateNewMessageBodyActionCreator(message));
   };
 
   return (
     <div className={styles.dialogs}>
-      <div>
+      <div className={styles.namesBlock}>
         <ul className={styles.dialogsItems}>{dialogsElements}</ul>
       </div>
-      <div>
+      <div className={styles.messageBlock}>
         <ul className={styles.messages}>{messagesElements}</ul>
-        <textarea
-          ref={newMessage}
-          className={styles.textarea}
-          name=""
-          id=""
-        ></textarea>
-        <button onClick={addNewMessage}>Add message</button>
+        <div>
+          <textarea
+            onChange={onNewMessageChange}
+            className={styles.textarea}
+            placeholder="Enter your message"
+            value={props.dialogsPage.newMessageBody}
+          ></textarea>
+          <button onClick={onSendMessageClick}>Add message</button>
+        </div>
       </div>
     </div>
   );
