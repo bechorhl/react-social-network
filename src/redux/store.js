@@ -57,6 +57,6 @@ const store = {
   },
 };
 
-window.state = store._state;
+// window.state = store._state;
 
 export default store;
