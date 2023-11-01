@@ -1,0 +1,65 @@
+.user {
+  display: flex;
+}
+
+.user:not(:first-child) {
+  margin-top: 35px;
+}
+
+.iconBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  display: block;
+  width: 100px;
+  /* height: 100px; */
+  /* background-color: brown; */
+}
+
+.iconButton {
+  display: block;
+  padding: 5px;
+  width:100%;
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.detailsBlock {
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: 200px 100px;  
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.nameBlock {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 6fr 1fr;           /*50px 12px;*/
+}
+
+.name {
+  display: block;
+}
+
+.status {
+  font-size: 12px;
+}
+
+.countryBlock {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 28px 34px;
+}
+
+.country {
+  display: block;
+}
+
+.city {
+}
+
