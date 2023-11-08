@@ -1,53 +1,48 @@
-import React from 'react';
-import styles from './Users.module.css';
 import User from './User/User';
+import styles from './Users.module.css';
 
 const Users = (props) => {
-  if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        photoUrl: '',
-        followed: false,
-        fullName: 'Dmitry',
-        status: 'I am a boss',
-        location: { city: 'Minsk', country: 'Belarus' },
-      },
-      {
-        id: 2,
-        photoUrl: '',
-        followed: true,
-        fullName: 'Sasha',
-        status: 'I am a boss too',
-        location: { city: 'Moscow', country: 'Russia' },
-      },
-      {
-        id: 3,
-        photoUrl: '',
-        followed: false,
-        fullName: 'Andrew',
-        status: 'I am a boss too',
-        location: { city: 'Kiev', country: 'Ukraine' },
-      },
-    ]);
-  }
+  const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-  let usersList = props.users.map((user) => (
-    <User
-      key={user.id}
-      id={user.id}
-      fullName={user.fullName}
-      followed={user.followed}
-      status={user.status}
-      location={user.location}
-      follow={props.follow}
-      unfollow={props.unfollow}
-    />
-  ));
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
 
   return (
     <div className={styles.users}>
-      <ul className={styles.userList}>{usersList}</ul>
+      <ul className={styles.pageList}>
+        {pages.map((page) => (
+          <li className={styles.pageItem}>
+            <button
+              onClick={() => {
+                props.onPageChanged(page);
+              }}
+              className={
+                props.currentPage === page
+                  ? `${styles.pageButton} ${styles.selectedPage}`
+                  : styles.pageButton
+              }
+            >
+              {page}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <ul className={styles.userList}>
+        {props.users.map((user) => (
+          <User
+            key={user.id}
+            id={user.id}
+            name={user.name}
+            photos={user.photos}
+            followed={user.followed}
+            status={user.status}
+            follow={props.follow}
+            unfollow={props.unfollow}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

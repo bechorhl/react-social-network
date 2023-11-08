@@ -6,7 +6,11 @@ const User = (props) => {
   return (
     <li className={styles.user}>
       <div className={styles.iconBlock}>
-        <img className={styles.icon} src={userIcon} alt="user icon" />
+        <img
+          className={styles.icon}
+          src={props.photos.small != null ? props.photos.small : userIcon}
+          alt="user icon"
+        />
         {props.followed ? (
           <button
             onClick={() => {
@@ -29,13 +33,13 @@ const User = (props) => {
       </div>
       <div className={styles.detailsBlock}>
         <div className={styles.nameBlock}>
-          <span className={styles.name}>{props.fullName}</span>
+          <span className={styles.name}>{props.name}</span>
           <span className={styles.status}>{props.status}</span>
         </div>
-        <div className={styles.countryBlock}>
+        {/* <div className={styles.countryBlock}>
           <span className={styles.country}>{props.location.country}</span>
           <span className={styles.city}>{props.location.city}</span>
-        </div>
+        </div> */}
       </div>
     </li>
   );
