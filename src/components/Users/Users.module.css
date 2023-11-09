@@ -2,23 +2,6 @@
   padding: 10px;
 }
 
-.pageList {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.pageItem:not(:first-child) {
-  margin-left: 10px;
-}
-
-.pageButton {
-  padding: 5px 10px;
-}
-
-.pageButton.selectedPage {
-  font-weight: bold;
-}
-
 .userList {
   margin-top: 50px;
 }

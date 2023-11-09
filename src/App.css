@@ -29,7 +29,7 @@ p {
 }
 
 button {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 10px;
   background-color: #5cdb95;
   cursor: pointer;
