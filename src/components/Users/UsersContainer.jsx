@@ -1,3 +1,4 @@
+// UserContainer.jsx
 import React from 'react';
 import {
   follow,
@@ -50,7 +51,7 @@ class UsersContainer extends React.Component {
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
-          isFetching={this.props.isFetching}
+          // isFetching={this.props.isFetching}
           onPageChanged={this.onPageChanged}
         />
       </>

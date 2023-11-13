@@ -1,3 +1,4 @@
+/* ProfileInfo.module.css */
 .mainImage {
   height: 100px;
   width: 100%;
@@ -5,4 +6,17 @@
 
 .descriptionBlock {
   padding: 10px;
+}
+
+.userDetail {
+  margin-top: 5px;
+}
+
+.contactItem {
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+.contactLink {
+  font-weight: bold;
 }

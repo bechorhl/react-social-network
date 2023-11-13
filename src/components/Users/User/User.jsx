@@ -1,16 +1,19 @@
 import React from 'react';
 import styles from './User.module.css';
 import userIcon from './../../../assets/images/user-icon2.png';
+import { NavLink } from 'react-router-dom';
 
 const User = (props) => {
   return (
     <li className={styles.user}>
       <div className={styles.iconBlock}>
-        <img
-          className={styles.icon}
-          src={props.photos.small != null ? props.photos.small : userIcon}
-          alt="user icon"
-        />
+        <NavLink to={'/profile/' + props.id}>
+          <img
+            className={styles.icon}
+            src={props.photos.small != null ? props.photos.small : userIcon}
+            alt="user icon"
+          />
+        </NavLink>
         {props.followed ? (
           <button
             onClick={() => {
