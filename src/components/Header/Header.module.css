@@ -1,9 +1,18 @@
+/* Header.module.css */
 .header {
   padding: 10px;
   grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #5cdb95;
 }
 
 .header img {
   width: 70px;
+}
+
+.loginLink {
+  font-size: 20px;
+  text-decoration: underline;
 }
