@@ -3,9 +3,12 @@ import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 
 const Friends = (props) => {
-  const friendsList = props.friends.map((friend) => (
-    <Friend key={friend.id} name={friend.name} />
-  ));
+  let friendsList = props.friends;
+  if (friendsList.length !== 0) {
+    friendsList = props.friends.map((friend) => (
+      <Friend key={friend.id} name={friend.name} />
+    ));
+  }
 
   return (
     <div className={styles.friends}>

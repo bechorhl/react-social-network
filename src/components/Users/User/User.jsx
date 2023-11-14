@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './User.module.css';
 import userIcon from './../../../assets/images/user-icon2.png';
 import { NavLink } from 'react-router-dom';
+import { usersAPI } from '../../../api/api';
 
 const User = (props) => {
   return (
@@ -16,8 +17,15 @@ const User = (props) => {
         </NavLink>
         {props.followed ? (
           <button
+            disabled={props.followingInProgress.some((id) => id === props.id)}
             onClick={() => {
-              props.unfollow(props.id);
+              props.toogleFollowingProgress(true, props.id);
+              usersAPI.unfollow(props.id).then((response) => {
+                if (response.resultCode === 0) {
+                  props.unfollow(props.id);
+                }
+                props.toogleFollowingProgress(false, props.id);
+              });
             }}
             className={styles.iconButton}
           >
@@ -25,8 +33,15 @@ const User = (props) => {
           </button>
         ) : (
           <button
+            disabled={props.followingInProgress.some((id) => id === props.id)}
             onClick={() => {
-              props.follow(props.id);
+              props.toogleFollowingProgress(true, props.id);
+              usersAPI.follow(props.id).then((response) => {
+                if (response.resultCode === 0) {
+                  props.follow(props.id);
+                }
+                props.toogleFollowingProgress(false, props.id);
+              });
             }}
             className={styles.iconButton}
           >

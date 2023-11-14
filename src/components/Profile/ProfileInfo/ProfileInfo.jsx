@@ -1,9 +1,10 @@
 // ProfileInfo.jsx
 import React from 'react';
-import styles from './ProfileInfo.module.css';
-import mainImg from './../../../assets/images/main-image.png';
 import Preloader from '../../common/Preloader/Preloader';
+import styles from './ProfileInfo.module.css';
 import classNames from 'classnames';
+import mainImg from './../../../assets/images/main-image.png';
+import userIcon from '../../../assets/images/user-icon2.png';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -17,6 +18,7 @@ const ProfileInfo = (props) => {
       contactList.push(
         <div className={styles.contactItem}>
           <a
+            key={key}
             className={styles.contactLink}
             target="_blank"
             href={`https://${props.profile.contacts[key]}`}
@@ -34,7 +36,12 @@ const ProfileInfo = (props) => {
         <img className={styles.mainImage} src={mainImg} alt="blue waves" />
       </div>
       <div className={styles.descriptionBlock}>
-        <img src={props.profile.photos.small} alt="user" />
+        {props.profile.photos.small ? (
+          <img src={props.profile.photos.small} alt="user" />
+        ) : (
+          <img className={styles.userIcon} src={userIcon} alt="user icon" />
+        )}
+
         <div className={classNames(styles.userDetail)}>
           Name: {props.profile.fullName}
         </div>
