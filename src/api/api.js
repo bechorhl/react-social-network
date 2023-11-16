@@ -28,7 +28,7 @@ export const usersAPI = {
 };
 
 export const authAPI = {
-  async authMe() {
+  async me() {
     return await instance.get('auth/me');
   },
 };

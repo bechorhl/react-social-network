@@ -23,7 +23,6 @@ const Users = (props) => {
             status={user.status}
             follow={props.follow}
             unfollow={props.unfollow}
-            toogleFollowingProgress={props.toogleFollowingProgress}
             followingInProgress={props.followingInProgress}
           />
         ))}

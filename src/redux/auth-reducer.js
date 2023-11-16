@@ -1,4 +1,6 @@
 // auth-reducer.js
+import { authAPI } from '../api/api';
+
 const SET_USER_DATA = 'SET-USER-DATA';
 const TOOGLE_IS_FETCHING = 'TOOGLE-IS-FETCHING';
 
@@ -36,5 +38,14 @@ export const toggleIsFetching = (isFetching) => ({
   type: TOOGLE_IS_FETCHING,
   isFetching,
 });
+
+export const getAuthUserData = () => (dispatch) => {
+  authAPI.me().then((response) => {
+    if (response.data.resultCode === 0) {
+      const { id, email, login } = response.data.data;
+      dispatch(setAuthUserData(id, email, login));
+    }
+  });
+};
 
 export default authReducer;

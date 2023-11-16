@@ -19,13 +19,7 @@ const User = (props) => {
           <button
             disabled={props.followingInProgress.some((id) => id === props.id)}
             onClick={() => {
-              props.toogleFollowingProgress(true, props.id);
-              usersAPI.unfollow(props.id).then((response) => {
-                if (response.resultCode === 0) {
-                  props.unfollow(props.id);
-                }
-                props.toogleFollowingProgress(false, props.id);
-              });
+              props.unfollow(props.id);
             }}
             className={styles.iconButton}
           >
@@ -35,13 +29,7 @@ const User = (props) => {
           <button
             disabled={props.followingInProgress.some((id) => id === props.id)}
             onClick={() => {
-              props.toogleFollowingProgress(true, props.id);
-              usersAPI.follow(props.id).then((response) => {
-                if (response.resultCode === 0) {
-                  props.follow(props.id);
-                }
-                props.toogleFollowingProgress(false, props.id);
-              });
+              props.follow(props.id);
             }}
             className={styles.iconButton}
           >
