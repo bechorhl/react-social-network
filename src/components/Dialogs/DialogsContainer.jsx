@@ -1,15 +1,15 @@
-import React from 'react';
 import {
   sendMessageActionCreator,
   updateNewMessageBodyActionCreator,
 } from '../../redux/dialogs-reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import { withAuthNavigate } from '../../hoc/withAuthNavigate';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
-    isAuth: state.auth.isAuth,
   };
 };
 
@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthNavigate
+)(Dialogs);
