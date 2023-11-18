@@ -5,6 +5,7 @@ import styles from './ProfileInfo.module.css';
 import classNames from 'classnames';
 import mainImg from './../../../assets/images/main-image.png';
 import userIcon from '../../../assets/images/user-icon2.png';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -42,11 +43,13 @@ const ProfileInfo = (props) => {
           <img className={styles.userIcon} src={userIcon} alt="user icon" />
         )}
 
+        <ProfileStatus status="Hello" />
+
         <div className={classNames(styles.userDetail)}>
           Name: {props.profile.fullName}
         </div>
         <div className={classNames(styles.userDetail)}>
-          About me: {props.profile.aboutMe}
+          Status: {props.profile.aboutMe}
         </div>
         <div className={classNames(styles.userDetail)}>
           Looking for a job: {props.profile.lookingForAJob ? 'yes' : 'no'}

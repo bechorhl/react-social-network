@@ -13,6 +13,9 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       userId = 2;
     }
+    if (this.props.isAuth) {
+      userId = this.props.myId;
+    }
     this.props.getUserProfile(userId);
   }
 
@@ -23,6 +26,8 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  isAuth: state.auth.isAuth,
+  myId: state.auth.userId,
 });
 
 const withRouter = (Component) => {

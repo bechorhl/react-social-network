@@ -24,3 +24,7 @@
 .contactLink {
   font-weight: bold;
 }
+
+.status {
+  display: block;
+}
