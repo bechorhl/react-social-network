@@ -38,4 +38,14 @@ export const profileAPI = {
     const response = await instance.get(`profile/${userId}`);
     return response.data;
   },
+
+  async getStatus(userId) {
+    const response = await instance.get(`profile/status/${userId}`);
+    return response.data;
+  },
+
+  async updateStatus(status) {
+    const response = await instance.get(`profile/status`, { status: status });
+    return response.data;
+  },
 };

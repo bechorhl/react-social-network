@@ -43,7 +43,10 @@ const ProfileInfo = (props) => {
           <img className={styles.userIcon} src={userIcon} alt="user icon" />
         )}
 
-        <ProfileStatus status="Hello" />
+        <ProfileStatus
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
 
         <div className={classNames(styles.userDetail)}>
           Name: {props.profile.fullName}
