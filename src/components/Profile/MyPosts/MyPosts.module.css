@@ -7,3 +7,14 @@
 .posts {
   margin-top: 20px;
 }
+
+.textarea {
+  margin-top: 20px;
+  padding: 10px;
+  min-width: 300px;
+  font-size: 16px;
+}
+
+.addButton {
+  margin-top: 10px;
+}

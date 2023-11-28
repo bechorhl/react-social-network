@@ -1,0 +1,32 @@
+.loginPage {
+  padding: 10px;
+}
+
+.form {
+  margin-top: 10px;
+}
+
+.loginFormDiv {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 16px;
+}
+
+.input::placeholder {
+  font-size: 15px;
+}
+
+.input {
+  margin-top: 5px; 
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.inputText {
+  padding: 12px 5px;
+  border: 2px solid #05386b;
+  background-color: transparent;
+}
+
