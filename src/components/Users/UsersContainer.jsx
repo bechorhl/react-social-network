@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
-import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -52,6 +51,5 @@ export default compose(
     follow,
     unfollow,
     getUsers,
-  }),
-  withAuthNavigate
+  })
 )(UsersContainer);
