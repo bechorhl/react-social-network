@@ -31,6 +31,18 @@ export const authAPI = {
   async me() {
     return await instance.get('auth/me');
   },
+
+  async login(email, password, rememberMe = false) {
+    return await instance.post('auth/login', {
+      email,
+      password,
+      rememberMe,
+    });
+  },
+
+  async logout() {
+    return await instance.delete('auth/login');
+  },
 };
 
 export const profileAPI = {
@@ -45,7 +57,7 @@ export const profileAPI = {
   },
 
   async updateStatus(status) {
-    const response = await instance.get(`profile/status`, { status: status });
+    const response = await instance.put(`profile/status`, { status: status });
     return response.data;
   },
 };
