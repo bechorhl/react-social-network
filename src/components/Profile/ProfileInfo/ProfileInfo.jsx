@@ -5,7 +5,7 @@ import styles from './ProfileInfo.module.css';
 import classNames from 'classnames';
 import mainImg from './../../../assets/images/main-image.png';
 import userIcon from '../../../assets/images/user-icon2.png';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -43,7 +43,7 @@ const ProfileInfo = (props) => {
           <img className={styles.userIcon} src={userIcon} alt="user icon" />
         )}
 
-        <ProfileStatus
+        <ProfileStatusWithHooks
           status={props.status}
           updateStatus={props.updateStatus}
         />
