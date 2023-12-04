@@ -52,7 +52,7 @@ const ProfileInfo = (props) => {
           Name: {props.profile.fullName}
         </div>
         <div className={classNames(styles.userDetail)}>
-          Status: {props.profile.aboutMe}
+          About me: {props.profile.aboutMe}
         </div>
         <div className={classNames(styles.userDetail)}>
           Looking for a job: {props.profile.lookingForAJob ? 'yes' : 'no'}

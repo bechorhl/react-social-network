@@ -1,3 +1,4 @@
+// MyPosts.jsx
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
@@ -5,7 +6,8 @@ import { Field, reduxForm } from 'redux-form';
 import { maxLength, required } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/FormsControls/FormsControls';
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
+  console.log('RENDER');
   const postsElements = props.posts.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
@@ -23,7 +25,7 @@ const MyPosts = (props) => {
       </div>
     </div>
   );
-};
+});
 
 let AddNewPostForm = (props) => {
   return (
