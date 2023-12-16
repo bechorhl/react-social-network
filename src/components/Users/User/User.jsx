@@ -3,22 +3,22 @@ import styles from './User.module.css';
 import userIcon from './../../../assets/images/user-icon2.png';
 import { NavLink } from 'react-router-dom';
 
-const User = (props) => {
+const User = ({ user, followingInProgress, follow, unfollow }) => {
   return (
     <li className={styles.user}>
       <div className={styles.iconBlock}>
-        <NavLink to={'/profile/' + props.id}>
+        <NavLink to={'/profile/' + user.id}>
           <img
             className={styles.icon}
-            src={props.photos.small != null ? props.photos.small : userIcon}
+            src={user.photos.small != null ? user.photos.small : userIcon}
             alt="user icon"
           />
         </NavLink>
-        {props.followed ? (
+        {user.followed ? (
           <button
-            disabled={props.followingInProgress.some((id) => id === props.id)}
+            disabled={followingInProgress.some((id) => id === user.id)}
             onClick={() => {
-              props.unfollow(props.id);
+              unfollow(user.id);
             }}
             className={styles.iconButton}
           >
@@ -26,9 +26,9 @@ const User = (props) => {
           </button>
         ) : (
           <button
-            disabled={props.followingInProgress.some((id) => id === props.id)}
+            disabled={followingInProgress.some((id) => id === user.id)}
             onClick={() => {
-              props.follow(props.id);
+              follow(user.id);
             }}
             className={styles.iconButton}
           >
@@ -38,8 +38,8 @@ const User = (props) => {
       </div>
       <div className={styles.detailsBlock}>
         <div className={styles.nameBlock}>
-          <span className={styles.name}>{props.name}</span>
-          <span className={styles.status}>{props.status}</span>
+          <span className={styles.name}>{user.name}</span>
+          <span className={styles.status}>{user.status}</span>
         </div>
         {/* <div className={styles.countryBlock}>
           <span className={styles.country}>{props.location.country}</span>

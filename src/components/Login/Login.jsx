@@ -9,9 +9,9 @@ import { login } from '../../redux/auth-reducer';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={props.handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.loginFormDiv}>
         <label className={styles.label}>Login:</label>
         <Field
@@ -42,9 +42,7 @@ const LoginForm = (props) => {
           validate={[required]}
         />
       </div>
-      {props.error && (
-        <div className={styles.formSummaryError}>{props.error}</div>
-      )}
+      {error && <div className={styles.formSummaryError}>{error}</div>}
 
       <div>
         <button type="submit">Submit</button>

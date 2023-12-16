@@ -16,11 +16,7 @@ const Users = (props) => {
         {props.users.map((user) => (
           <User
             key={user.id}
-            id={user.id}
-            name={user.name}
-            photos={user.photos}
-            followed={user.followed}
-            status={user.status}
+            user={user}
             follow={props.follow}
             unfollow={props.unfollow}
             followingInProgress={props.followingInProgress}
