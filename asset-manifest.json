@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/bechorhl/react-social-network/static/css/main.0f0bd31e.css",
+    "main.js": "/bechorhl/react-social-network/static/js/main.ebd33c35.js",
+    "static/css/454.fd970df3.chunk.css": "/bechorhl/react-social-network/static/css/454.fd970df3.chunk.css",
+    "static/js/454.916ab225.chunk.js": "/bechorhl/react-social-network/static/js/454.916ab225.chunk.js",
+    "static/css/550.b8f6c7f0.chunk.css": "/bechorhl/react-social-network/static/css/550.b8f6c7f0.chunk.css",
+    "static/js/550.1468dc81.chunk.js": "/bechorhl/react-social-network/static/js/550.1468dc81.chunk.js",
+    "static/js/787.8bc1f637.chunk.js": "/bechorhl/react-social-network/static/js/787.8bc1f637.chunk.js",
+    "static/media/header-logo.png": "/bechorhl/react-social-network/static/media/header-logo.9b96901c3eb23d34d1a1.png",
+    "static/media/main-image.png": "/bechorhl/react-social-network/static/media/main-image.4e05fd0594a660dae79d.png",
+    "static/media/user-icon2.png": "/bechorhl/react-social-network/static/media/user-icon2.602dd8a230639a3ece01.png",
+    "static/media/preloader-animation.svg": "/bechorhl/react-social-network/static/media/preloader-animation.a63be287b7c75c722f2f3fcb41074c2e.svg",
+    "index.html": "/bechorhl/react-social-network/index.html",
+    "main.0f0bd31e.css.map": "/bechorhl/react-social-network/static/css/main.0f0bd31e.css.map",
+    "main.ebd33c35.js.map": "/bechorhl/react-social-network/static/js/main.ebd33c35.js.map",
+    "454.fd970df3.chunk.css.map": "/bechorhl/react-social-network/static/css/454.fd970df3.chunk.css.map",
+    "454.916ab225.chunk.js.map": "/bechorhl/react-social-network/static/js/454.916ab225.chunk.js.map",
+    "550.b8f6c7f0.chunk.css.map": "/bechorhl/react-social-network/static/css/550.b8f6c7f0.chunk.css.map",
+    "550.1468dc81.chunk.js.map": "/bechorhl/react-social-network/static/js/550.1468dc81.chunk.js.map",
+    "787.8bc1f637.chunk.js.map": "/bechorhl/react-social-network/static/js/787.8bc1f637.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f0bd31e.css",
+    "static/js/main.ebd33c35.js"
+  ]
+}
