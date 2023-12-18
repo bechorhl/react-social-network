@@ -14,6 +14,7 @@
 
 .userIcon {
   width: 100px;
+  display: block;
 }
 
 .contactItem {

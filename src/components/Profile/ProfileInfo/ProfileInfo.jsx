@@ -31,17 +31,25 @@ const ProfileInfo = (props) => {
     }
   }
 
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
+
   return (
     <div>
       <div>
         <img className={styles.mainImage} src={mainImg} alt="blue waves" />
       </div>
       <div className={styles.descriptionBlock}>
-        {props.profile.photos.small ? (
-          <img src={props.profile.photos.small} alt="user" />
-        ) : (
-          <img className={styles.userIcon} src={userIcon} alt="user icon" />
-        )}
+        <img
+          className={styles.userIcon}
+          src={props.profile.photos.small || userIcon}
+          alt="user icon"
+        />
+
+        {props.isOwner && <input type="file" onChange={onMainPhotoSelected} />}
 
         <ProfileStatusWithHooks
           status={props.status}
