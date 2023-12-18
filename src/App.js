@@ -12,7 +12,7 @@ import withRouter from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { withSuspense } from './hoc/withSuspense';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -50,7 +50,6 @@ class App extends React.Component {
             <Route path="/dialogs/*" element={<DialogsContainerComp />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/login" element={<Login />} />
-            {/* <Route path="*" element={<Profile />} /> */}
           </Routes>
         </div>
       </div>
@@ -69,11 +68,11 @@ const AppContainer = compose(
 
 const MainJSApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

@@ -58,7 +58,7 @@ const ProfileInfo = (props) => {
           Looking for a job: {props.profile.lookingForAJob ? 'yes' : 'no'}
         </div>
         <div className={classNames(styles.userDetail)}>
-          Looking for a job description:{' '}
+          Looking for a job description:
           {props.profile.lookingForAJobDescription}
         </div>
         <div className={classNames(styles.userDetail, styles.contacts)}>
