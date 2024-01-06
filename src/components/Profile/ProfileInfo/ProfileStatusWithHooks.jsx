@@ -1,6 +1,7 @@
 // ProfileStatusWithHooks.jsx
 import React, { useState, useEffect } from 'react';
 import styles from './ProfileInfo.module.css';
+import classNames from 'classnames';
 
 const ProfileStatusWithHooks = (props) => {
   const [editMode, setEditMode] = useState(false);
@@ -24,14 +25,15 @@ const ProfileStatusWithHooks = (props) => {
   };
 
   return (
-    <div>
+    <div className={classNames(styles.block, styles.statusBlock)}>
       {!editMode && (
         <span onDoubleClick={activateEditMode} className={styles.status}>
-          {status || 'Write your status...'}
+          <b>Status:</b> {status || ''}
         </span>
       )}
       {editMode && (
         <input
+          className={styles.editStatusInput}
           autoFocus="true"
           onBlur={deactivateEditMode}
           onChange={onStatusChange}

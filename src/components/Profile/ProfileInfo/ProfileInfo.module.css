@@ -4,6 +4,16 @@
   width: 100%;
 }
 
+.inputChooseFile {
+  /* padding: 5px 10px; */
+  background: red;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-top: 5px; 
+  font-size: 16px;
+  border-radius: 5px;
+}
+
 .descriptionBlock {
   padding: 10px;
 }
@@ -28,4 +38,77 @@
 
 .status {
   display: block;
+}
+
+.editStatusInput {
+  padding: 5px 10px;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.block {
+  margin-top: 10px;
+}
+
+.profileDataBlock {
+  position: relative;
+}
+
+.editProfileButton {
+  padding: 7px 15px;
+  background-color: transparent;
+  border: 1px solid #05386b;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.profileDataForm {
+  margin-top: 50px;
+}
+
+.loginFormDiv {
+  margin-top: 10px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.input::placeholder {
+  font-size: 15px;
+}
+
+.input {
+  margin-top: 5px; 
+  border-radius: 5px;   
+  font-size: 16px;
+}
+
+.inputText,
+.textarea {
+  padding: 5px 12px;
+  border: 2px solid #05386b; 
+  /* background-color: transparent; */
+}
+
+.textarea {
+  display: block;
+  width: 250px;
+  height: 70px;
+  font-size: 17px;
+}
+
+.contactsBlockForm {
+  margin-top: 50px;
+}
+
+.statusBlock {
+  margin-top: 50px;
+}
+
+.inputContact {
+  width: max-content;
+  min-width: 250px;
 }

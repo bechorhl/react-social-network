@@ -3,7 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './FormControls.module.css';
 import classNames from 'classnames';
-import { Field } from 'redux-form';
 
 const FormControl = ({
   input,
@@ -41,6 +40,8 @@ export const Input = (props) => {
 };
 
 export const CustomCheckbox = ({
+  nameId,
+  text,
   input,
   meta: { touched, error, warning },
   ...props
@@ -56,7 +57,7 @@ export const CustomCheckbox = ({
       )}
     >
       <input
-        id="rememberMe"
+        id={nameId}
         type="checkbox"
         onChange={() => setIsChecked((prev) => !prev)}
         {...input}
@@ -64,9 +65,9 @@ export const CustomCheckbox = ({
       />
       <label
         className={classNames(styles.label, styles.checkboxLabel)}
-        for="rememberMe"
+        for={nameId}
       >
-        Remember me
+        {text}
       </label>
       {hasError && (
         <span
@@ -77,4 +78,12 @@ export const CustomCheckbox = ({
       )}
     </div>
   );
+};
+
+export const CustomRadioButton = ({
+  input,
+  meta: { touched, error, warning },
+  ...props
+}) => {
+  return;
 };

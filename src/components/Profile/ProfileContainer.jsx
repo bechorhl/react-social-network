@@ -7,10 +7,12 @@ import {
   getStatus,
   updateStatus,
   savePhoto,
+  saveProfile,
 } from '../../redux/profile-reducer';
 import { compose } from 'redux';
 import withRouter from '../../hoc/withRouter';
 import withNavigate from '../../hoc/withNavigate';
+import { initialize } from 'redux-form';
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
@@ -30,7 +32,7 @@ class ProfileContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, PrevState, snapshot) {
-    if (this.props.router.params.userId != prevProps.router.params.userId) {
+    if (this.props.router.params.userId !== prevProps.router.params.userId) {
       this.refreshProfile();
     }
   }
@@ -44,6 +46,7 @@ class ProfileContainer extends React.Component {
         status={this.props.status}
         updateStatus={this.props.updateStatus}
         savePhoto={this.props.savePhoto}
+        saveProfile={this.props.saveProfile}
       />
     );
   }
@@ -62,6 +65,8 @@ export default compose(
     getStatus,
     updateStatus,
     savePhoto,
+    saveProfile,
+    // initialize,
   }),
   withNavigate,
   withRouter

@@ -70,4 +70,9 @@ export const profileAPI = {
       },
     });
   },
+
+  async saveProfile(profile) {
+    const response = await instance.put(`profile`, profile);
+    return response;
+  },
 };

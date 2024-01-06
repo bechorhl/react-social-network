@@ -40,6 +40,8 @@ const LoginForm = ({ handleSubmit, error }) => {
           component={CustomCheckbox}
           type="checkbox"
           validate={[required]}
+          nameId="rememberMe"
+          text="Remember me"
         />
       </div>
       {error && <div className={styles.formSummaryError}>{error}</div>}
