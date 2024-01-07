@@ -1,9 +1,10 @@
 // auth-reducer.js
-import { authAPI } from '../api/api';
+import { authAPI, securityAPI } from '../api/api';
 import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'auth-reducer/SET-USER-DATA';
 const TOGGLE_IS_FETCHING = 'auth-reducer/TOGGLE-IS-FETCHING';
+const GET_CAPTCHA_URL_SUCCESS = 'GET-CAPTCHA-URL-SUCCESS';
 
 const initialState = {
   userId: null,
@@ -11,6 +12,7 @@ const initialState = {
   login: null,
   isFetching: false,
   isAuth: false,
+  captchaUrl: null, // if null, the captcha is not required
 };
 
 const authReducer = (state = initialState, action) => {
@@ -25,6 +27,12 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isFetching: action.isFetching,
       };
+
+    case GET_CAPTCHA_URL_SUCCESS:
+      return {
+        ...state,
+        captchaUrl: action.captchaUrl,
+      };
     default:
       return state;
   }
@@ -38,6 +46,10 @@ export const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching,
 });
+export const getCaptchaUrlSuccess = (captchaUrl) => ({
+  type: GET_CAPTCHA_URL_SUCCESS,
+  captchaUrl,
+});
 
 export const getAuthUserData = () => async (dispatch) => {
   const response = await authAPI.me();
@@ -48,30 +60,39 @@ export const getAuthUserData = () => async (dispatch) => {
   }
 };
 
-export const login = (email, password, rememberMe) => async (dispatch) => {
-  const response = await authAPI.login(email, password, rememberMe);
+export const login =
+  (email, password, rememberMe, captcha) => async (dispatch) => {
+    const response = await authAPI.login(email, password, rememberMe, captcha);
 
-  if (response.data.resultCode === 0) {
-    dispatch(getAuthUserData());
-  } else {
-    const messageError =
-      response.data.messages.length > 0
-        ? response.data.messages[0]
-        : 'Some error';
-    dispatch(
-      stopSubmit('loginForm', {
-        _error: messageError,
-      })
-    );
-  }
-};
+    if (response.data.resultCode === 0) {
+      dispatch(getAuthUserData());
+    } else {
+      if (response.data.resultCode === 10) {
+        dispatch(getCaptchaUrl());
+      }
+      const messageError =
+        response.data.messages.length > 0
+          ? response.data.messages[0]
+          : 'Some error';
+      dispatch(
+        stopSubmit('loginForm', {
+          _error: messageError,
+        })
+      );
+    }
+  };
 
 export const logout = () => async (dispatch) => {
   const response = await authAPI.logout();
-
   if (response.data.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false));
   }
+};
+
+export const getCaptchaUrl = () => async (dispatch) => {
+  const response = await securityAPI.getCaptchaUrl();
+  const captchaUrl = response.url;
+  dispatch(getCaptchaUrlSuccess(captchaUrl));
 };
 
 export default authReducer;
