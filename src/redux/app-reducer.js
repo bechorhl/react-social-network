@@ -24,8 +24,12 @@ export const initializedSuccess = () => ({
 });
 
 export const initializeApp = () => async (dispatch) => {
-  await dispatch(getAuthUserData());
-  dispatch(initializedSuccess());
+  try {
+    await dispatch(getAuthUserData());
+    dispatch(initializedSuccess());
+  } catch (error) {
+    alert('Some error', error);
+  }
 };
 
 export default appReducer;

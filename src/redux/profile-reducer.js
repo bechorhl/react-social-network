@@ -6,7 +6,7 @@ const ADD_POST = 'profile-reducer/ADD-POST';
 const SET_USER_PROFILE = 'profile-reducer/SET-USER-PROFILE';
 const SET_STATUS = 'profile-reducer/SET-STATUS';
 const DELETE_POST = 'profile-reducer/DELETE-POST';
-const SAVE_PHOTO_SUCCESS = 'profile/reducer/SAVE-PHOTO-SUCCESS';
+const SAVE_PHOTO_SUCCESS = 'profile-reducer/SAVE-PHOTO-SUCCESS';
 
 const initialState = {
   posts: [
@@ -97,9 +97,13 @@ export const getStatus = (userId) => async (dispatch) => {
 };
 
 export const updateStatus = (status) => async (dispatch) => {
-  const response = await profileAPI.updateStatus(status);
-  if (response.resultCode === 0) {
-    dispatch(setStatus(status));
+  try {
+    const response = await profileAPI.updateStatus(status);
+    if (response.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
+  } catch (error) {
+    alert('some error');
   }
 };
 

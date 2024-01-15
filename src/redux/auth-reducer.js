@@ -4,7 +4,7 @@ import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'auth-reducer/SET-USER-DATA';
 const TOGGLE_IS_FETCHING = 'auth-reducer/TOGGLE-IS-FETCHING';
-const GET_CAPTCHA_URL_SUCCESS = 'GET-CAPTCHA-URL-SUCCESS';
+const GET_CAPTCHA_URL_SUCCESS = 'auth-reducer/GET-CAPTCHA-URL-SUCCESS';
 
 const initialState = {
   userId: null,

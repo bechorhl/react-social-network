@@ -4,16 +4,14 @@ import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import UsersContainer from './components/Users/UsersContainer';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import withRouter from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
-import { HashRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { withSuspense } from './hoc/withSuspense';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 const DialogsContainer = React.lazy(() =>
@@ -43,6 +41,7 @@ class App extends React.Component {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
+            <Route path="/" element={<Navigate to="/profile" />} />
             <Route
               path="/profile/:userId?"
               element={<ProfileContainerComp />}
@@ -68,11 +67,11 @@ const AppContainer = compose(
 
 const MainJSApp = (props) => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
